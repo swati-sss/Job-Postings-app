@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+<title>Web Scraping UI</title>
+
+<style lang="sass">
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: paleturquoise;
+  line-height: 1.25;
+}
+
+.form {
+  width: 320px;
+  padding: 2rem;
+  background-color: #FFF;
+  border: 0;
+  border-radius: 0.375rem;
+  box-shadow: 0 15px 45px -5px rgba(10, 16, 34, 0.15);
+}
+.form__fieldset {
+  border: 0;
+  padding: 0;
+}
+.form__field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  min-height: 2.375rem;
+}
+.form__label {
+  flex: 0 1 33.33%;
+}
+.form__input {
+  display: block;
+  flex: 1;
+  padding: 0.5rem;
+}
+.form__actions {
+  padding-top: 0.5rem;
+}
+.form__feedback {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 2px solid currentColor;
+  border-radius: 0.25rem;
+  color: #31708F;
+  background-color: rgba(49, 112, 143, 0.1);
+}
+.form__feedback:empty {
+  display: none;
+}
+.form__feedback.success {
+  color: #00A86B;
+  background-color: rgba(0, 168, 107, 0.1);
+}
+
+.btn {
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  transition: all 0.2s ease-in-out;
+  font-size: 0.875rem;
+  padding: 1rem 1.5rem;
+  border: 2px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+.btn--primary {
+  display: block;
+  width: 100%;
+  font-weight: 700;
+  background-color: salmon;
+  color: #FFF;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.btn--primary:hover, .btn--primary:focus {
+  background-color: #f85441;
+}
+
+.more {
+  text-align: center;
+  padding-top: 0.5rem;
+}
+</style>
+</head><body>
+<center><img width= '183' height= '28' src='https://i2.wp.com/www.ismiletechnologies.com/wp-content/uploads/2020/11/logo_ismile.png?resize=768%2C115&ssl=1'>
+<center><h1>Marketing Analytics</h1>
+<center><h3>Web Scraping of Job Postings</h3>
+<div>
+  <form action="{{ url_for('download')}}" method="POST" id="example-form" class="form" autocomplete="off">
+
+<div class="form__field">
+        <label for="shirtsize" class="form__label"><b>Job website</b></label>
+        <select
+          id="website"
+          class="form__input"
+          name="website"
+        >
+<option value='Indeed Jobs'>Indeed Jobs</option>
+
+<option value='Google Jobs'>Google Jobs</option>
+<option value='LinkedIn Jobs'>LinkedIn Jobs</option>
+<option value='Monster Jobs'>Monster Jobs</option>
+<option value='All'>All</option>
+        </select>
+      </div>
+      <div class="form__field">
+        <label for="shirtsize" class="form__label"><b>Keywords</b></label>
+        <select
+          id="keywords"
+          class="form__input"
+          name="keywords"
+        >
+          <option value='AWS Cloud'>AWS Cloud</option>
+<option value='Azure Cloud'>Azure Cloud</option>
+<option value='Google Chrome Enterprise'>Google Chrome Enterprise</option>
+<option value='Google Cloud'>Google Cloud</option>
+<option value='Google For Education'>Google For Education</option>
+<option value='Google Workspace'>Google Workspace</option>
+<option value='G-suite'>G-suite</option>
+<option value='All'>All</option>
+        </select>
+      </div>
+      <div class="form__field">
+        <label for="shirtsize" class="form__label"><b>location</b></label>
+        <select
+          id="location"
+          class="form__input"
+          name="location"
+        >
+          <option value='USA'>USA</option>
+<option value='Canada'>Canada</option>
+        </select>
+      </div>
+
+      <div class="form__actions">
+        <button type="submit" class="btn btn--primary" id="submit">Download</button> <br>
+     <!-- <button type="submit" class="btn btn--primary" id="submit">Preview</button>-->
+      </div>
+
+    </fieldset>
+
+
+
+
+
+      </div>
+
+
+  </form>
+  <h1>{{processing_text}}
+{{download_text}}</h1>
+
+</div>
+</body>
+</html>
